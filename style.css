@@ -64,7 +64,7 @@ h1{font:700 clamp(2.8rem,7vw,5.2rem)/1.05 'Space Grotesk'}
 .skill .row{display:flex;justify-content:space-between;font-weight:600;margin-bottom:.7rem}
 .bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
 .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:6px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.projects{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.projects{grid-template-columns:repeat(auto-fit,minmax(300px,380px))}
 .proj{padding:0;overflow:hidden}
 .thumb{height:180px;overflow:hidden;position:relative}
 .thumb div{height:100%;display:grid;place-items:center;font-size:3.4rem;transition:transform .6s}
