@@ -9,20 +9,20 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  { icon: '🍽️', bg: 'linear-gradient(135deg,#f97316,#7c5cff)', name: 'FoodStock Manager',
+  { icon: '🍽️', bg: 'linear-gradient(135deg,#f97316,#7c5cff)', img: 'assets/images/project-foodstock.svg', name: 'FoodStock Manager',
     desc: 'Inventory, staff, menu and food-order management system with a public customer order page.',
     tech: ['HTML', 'JavaScript', 'Cloudflare Workers', 'D1'],
     github: 'https://github.com/mamdlj/MAMD-site', live: 'https://mamdlj.github.io/MAMD-site' },
-  { icon: '🏫', bg: 'linear-gradient(135deg,#22d3ee,#2563eb)', name: 'Classico 7 — Principal Assistant',
+  { icon: '🏫', bg: 'linear-gradient(135deg,#22d3ee,#2563eb)', img: 'assets/images/project-classico7.svg', name: 'Classico 7 — Principal Assistant',
     desc: 'Persian RTL features page for a school-management app: report cards, attendance, grades, SMS and discipline.',
     tech: ['HTML', 'CSS', 'RTL'] },
-  { icon: '🛍️', bg: 'linear-gradient(135deg,#ec4899,#7c5cff)', name: 'Order Form (Skin-care Store)',
+  { icon: '🛍️', bg: 'linear-gradient(135deg,#ec4899,#7c5cff)', img: 'assets/images/project-orderform.svg', name: 'Order Form (Skin-care Store)',
     desc: 'Multi-step order form with optional accounts and an admin panel to manage orders.',
     tech: ['HTML', 'JavaScript', 'Firebase', 'Firestore'] },
-  { icon: '💼', bg: 'linear-gradient(135deg,#7c5cff,#22d3ee)', name: 'MAMD Portfolio',
+  { icon: '💼', bg: 'linear-gradient(135deg,#7c5cff,#22d3ee)', img: 'assets/images/project-mamd.svg', name: 'MAMD Portfolio',
     desc: 'Multi-language personal website with hero, services, pricing packages and contact sections.',
     tech: ['PHP', 'CSS', 'JavaScript'] },
-  { icon: '🪪', bg: 'linear-gradient(135deg,#334155,#7c5cff)', name: 'Bio Page',
+  { icon: '🪪', bg: 'linear-gradient(135deg,#334155,#7c5cff)', img: 'assets/images/project-bio.svg', name: 'Bio Page',
     desc: 'Single-file bio page inspired by design-software layers: about, languages & tools, contact.',
     tech: ['HTML', 'CSS'] }
 ];
@@ -37,7 +37,7 @@ $('#skillGrid').innerHTML = SKILLS.map(([i, n, p]) =>
 
 $('#projectGrid').innerHTML = PROJECTS.map(p => `
   <article class="card proj reveal">
-    <div class="thumb"><div style="background:${p.bg}">${p.icon}</div></div>
+    <div class="thumb"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
     <div class="body"><h3>${p.name}</h3><p>${p.desc}</p>
       <div class="tags">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="links">${p.github ? `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>` : ''}
