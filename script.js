@@ -152,13 +152,29 @@ $('#copy').onclick = async () => { try { await navigator.clipboard.writeText(gms
 tg.addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].tg; });
 ea.addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].ea; });
 
+/* ====== Grand-opening countdown ====== */
+const OPENING = new Date('2026-11-08T21:10:00Z').getTime();
+const LT = {
+  en: { before: '🚀 Grand opening in', after: "🎉 We're open! Welcome to my new website." },
+  fa: { before: '🚀 افتتاحیه‌ی بزرگ تا', after: '🎉 افتتاح شد! به وب‌سایت جدیدم خوش آمدید.' }
+};
+function renderLaunch() {
+  const box = $('#launch'), d = OPENING - Date.now();
+  if (d <= 0) { box.classList.add('done'); $('#lt-text').textContent = LT[LANG].after; return; }
+  const p = n => String(n).padStart(2, '0'), days = Math.floor(d / 864e5);
+  $('#lt-text').textContent = LT[LANG].before;
+  $('#lt').textContent = (days ? days + 'd ' : '') + p(Math.floor(d / 36e5) % 24) + ':' + p(Math.floor(d / 6e4) % 60) + ':' + p(Math.floor(d / 1e3) % 60);
+}
+$('#lclose').onclick = () => $('#launch').classList.add('hide');
+setInterval(renderLaunch, 1000);
+
 /* ====== Apply language ====== */
 function setLang(l) {
   LANG = l; const r = document.documentElement;
   r.lang = l; r.dir = l === 'fa' ? 'rtl' : 'ltr';
   translate(l);
   gdesc.placeholder = UI[l].ph; document.title = UI[l].title; $('#lang').textContent = UI[l].btn;
-  li = 0; ci = 0; del = false; st.textContent = ''; build();
+  li = 0; ci = 0; del = false; st.textContent = ''; build(); renderLaunch();
   try { localStorage.setItem('lang', l); } catch (e) {}
 }
 $('#lang').onclick = () => setLang(LANG === 'fa' ? 'en' : 'fa');

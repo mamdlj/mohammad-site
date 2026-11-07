@@ -146,3 +146,11 @@ html[dir=rtl] .term{font-family:Vazirmatn,monospace}
 html[dir=rtl] .chat{left:auto;right:1.2rem}
 html[dir=rtl] #top{right:auto;left:1.4rem}
 html[dir=rtl] .scroll{left:50%}
+
+.launch{position:relative;z-index:101;display:flex;justify-content:center;align-items:center;gap:.6rem;flex-wrap:wrap;padding:.6rem 3rem;background:linear-gradient(90deg,#5b3df5,var(--acc) 50%,var(--acc2));color:#fff;font-size:.9rem;font-weight:600;text-align:center}
+.launch b{font:700 1rem 'Courier New',monospace;font-variant-numeric:tabular-nums;background:rgba(0,0,0,.28);padding:.1rem .7rem;border-radius:8px}
+.launch.done{background:linear-gradient(90deg,#16a34a,var(--acc2))}
+.launch.done b{display:none}
+.launch.hide{display:none}
+#lclose{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#fff;font-size:1.4rem;cursor:pointer;line-height:1}
+html[dir=rtl] #lclose{right:auto;left:14px}
