@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b0b0f'/><text x='50' y='66' font-size='46' font-family='Arial' font-weight='700' text-anchor='middle' fill='%237c5cff'>MT</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <div id="loader"><span>MT</span></div>
@@ -21,10 +21,10 @@
 <div class="cursor" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a href="#home" class="logo">MT</a>
+  <a href="#home" class="logo">&lt;MT/&gt;</a>
   <nav id="menu">
     <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
-    <a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
+    <a href="#projects">Projects</a><a href="#services">Services</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
   </nav>
   <div class="nav-right">
     <button id="theme" aria-label="Toggle theme">🌙</button>
@@ -34,11 +34,14 @@
 </header>
 
 <main>
+<div class="hero-bg" aria-hidden="true"></div>
 <section id="home" class="hero">
   <div class="hero-text">
+    <span class="badge reveal">Web • Design • AI</span>
     <p class="eyebrow reveal">Hello, I'm</p>
     <h1 class="reveal">Mohammad Taha</h1>
     <h2 class="reveal">Web Developer &amp; Designer</h2>
+    <p class="term reveal">&gt; <span id="typed"></span><i class="caret"></i></p>
     <p class="lead reveal">I create modern, responsive and creative websites with clean code and great user experiences.</p>
     <div class="cta reveal">
       <a href="#projects" class="btn">View My Projects</a>
@@ -99,24 +102,45 @@
   </div>
 </section>
 
+<section id="faq" class="wrap narrow">
+  <h2 class="title reveal">FAQ</h2>
+  <div class="faq reveal">
+    <details open><summary>What do you build?</summary><p>Modern, responsive websites, landing pages and UI designs, plus speed and experience optimization for existing sites.</p></details>
+    <details><summary>How do I start a project?</summary><p>Use the message builder below: pick a topic, describe your idea in a few lines and send it to me on Telegram.</p></details>
+    <details><summary>How is the cost decided?</summary><p>It depends on the pages, features and design you need. Send me your idea and I'll reply with a clear quote.</p></details>
+    <details><summary>Will my website work on mobile?</summary><p>Yes. Every site I build is responsive and tested on phones, tablets and desktops.</p></details>
+    <details><summary>Can you improve my existing website?</summary><p>Yes. I can redesign it or optimize its speed and user experience without starting from zero.</p></details>
+    <details><summary>Which technologies do you use?</summary><p>HTML, CSS, JavaScript and Python, with Git and GitHub for version control.</p></details>
+  </div>
+</section>
+
 <section id="contact" class="wrap">
   <h2 class="title reveal">Let's Work Together</h2>
   <p class="sub reveal">Have an idea or project in mind? Let's turn it into reality.</p>
   <div class="contact">
-    <form id="form" class="card reveal" novalidate>
-      <label>Name<input name="name" required minlength="2"></label>
-      <label>Email<input name="email" type="email" required></label>
-      <label>Subject<input name="subject" required></label>
-      <label>Message<textarea name="message" rows="5" required minlength="10"></textarea></label>
+    <div class="card gen reveal">
+      <label>Topic
+        <select id="topic">
+          <option>Website design</option><option>Landing page</option><option>UI design</option>
+          <option>Website optimization</option><option>Something else</option>
+        </select></label>
+      <label>Name (optional)<input id="gname" autocomplete="name"></label>
+      <label>Describe your project in 2–3 lines<textarea id="gdesc" rows="3" placeholder="e.g. I need a modern landing page for my shop"></textarea></label>
+      <label>Ready message<textarea id="gmsg" rows="6" readonly></textarea></label>
+      <div class="row"><button class="btn" id="copy" type="button">Copy message</button><a class="btn btn-ghost" id="tg" href="https://t.me/NeoCode5" target="_blank" rel="noopener">Send on Telegram</a></div>
       <p id="status" role="status"></p>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
+    </div>
     <div class="social reveal">
-      <a class="card" href="mailto:" id="mailLink">✉️ Email</a>
       <a class="card" href="https://github.com/mamdlj" target="_blank" rel="noopener">🐙 GitHub</a>
       <a class="card" href="https://t.me/NeoCode5" target="_blank" rel="noopener">✈️ Telegram</a>
       <a class="card" href="https://www.instagram.com/my_laste" target="_blank" rel="noopener">📸 Instagram</a>
     </div>
+  </div>
+  <h3 class="sub2 reveal">What happens next?</h3>
+  <div class="grid three steps">
+    <div class="card reveal"><i>1</i><p>Send me a short message about your idea or need.</p></div>
+    <div class="card reveal"><i>2</i><p>We talk briefly so I understand your goals.</p></div>
+    <div class="card reveal"><i>3</i><p>You get a written proposal with scope and timing.</p></div>
   </div>
 </section>
 </main>
@@ -129,7 +153,8 @@
   </div>
   <p class="copy">© 2026 Mohammad Taha. All Rights Reserved.</p>
 </footer>
+<a class="chat" href="https://t.me/NeoCode5" target="_blank" rel="noopener">💬 Message me</a>
 <button id="top" aria-label="Back to top">↑</button>
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

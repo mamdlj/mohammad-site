@@ -1,6 +1,5 @@
 'use strict';
 /* ====== Settings ====== */
-const EMAIL = '';            // ← put your email here to enable the contact form + Email button
 const TELEGRAM = 'NeoCode5'; // fallback when EMAIL is empty
 
 const SKILLS = [
@@ -75,28 +74,32 @@ const cur = $('.cursor');
 addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
 document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.target.closest('a,button,input,textarea')));
 
-/* ====== Contact form ====== */
-if (EMAIL) $('#mailLink').href = 'mailto:' + EMAIL;
-else $('#mailLink').href = 'https://t.me/' + TELEGRAM;
+/* ====== Typing terminal ====== */
+(() => {
+  const el = $('#typed'); if (!el) return;
+  const lines = ['building modern websites, one commit at a time', 'designing clean, fast interfaces', 'turning ideas into real products'];
+  let li = 0, ci = 0, del = false;
+  (function tick() {
+    const t = lines[li];
+    el.textContent = t.slice(0, ci);
+    if (!del && ci === t.length) { del = true; return setTimeout(tick, 1800); }
+    if (del && ci === 0) { del = false; li = (li + 1) % lines.length; }
+    ci += del ? -1 : 1;
+    setTimeout(tick, del ? 25 : 55);
+  })();
+})();
 
-$('#form').addEventListener('submit', e => {
-  e.preventDefault();
-  const f = e.target, d = Object.fromEntries(new FormData(f)), st = $('#status');
-  let ok = true;
-  $$('input,textarea', f).forEach(i => {
-    const bad = !i.checkValidity() || !i.value.trim();
-    i.classList.toggle('bad', bad); if (bad) ok = false;
-  });
-  if (!ok) { st.style.color = '#ef4444'; st.textContent = 'Please fill all fields correctly.'; return; }
-  const body = `Name: ${d.name}\nEmail: ${d.email}\n\n${d.message}`;
-  st.style.color = 'var(--acc2)';
-  if (EMAIL) {
-    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(d.subject)}&body=${encodeURIComponent(body)}`;
-    st.textContent = 'Opening your email app…';
-  } else {
-    navigator.clipboard?.writeText(`${d.subject}\n${body}`).catch(() => {});
-    window.open('https://t.me/' + TELEGRAM, '_blank');
-    st.textContent = 'Message copied — paste it in Telegram chat.';
-  }
-  f.reset();
-});
+/* ====== Message builder ====== */
+(() => {
+  const topic = $('#topic'), name = $('#gname'), desc = $('#gdesc'), msg = $('#gmsg'), tg = $('#tg'), st = $('#status');
+  const build = () => {
+    msg.value = `Hi Mohammad Taha,\n${name.value.trim() ? 'My name is ' + name.value.trim() + '.\n' : ''}I'd like to talk about: ${topic.value}.\n\nProject: ${desc.value.trim() || '(I will explain in the chat)'}\n\nThanks!`;
+    tg.href = 'https://t.me/' + TELEGRAM + '?text=' + encodeURIComponent(msg.value);
+  };
+  [topic, name, desc].forEach(e => e.addEventListener('input', build)); build();
+  $('#copy').onclick = async () => {
+    try { await navigator.clipboard.writeText(msg.value); } catch (e) { msg.select(); document.execCommand('copy'); }
+    st.textContent = 'Message copied ✓';
+  };
+  tg.addEventListener('click', () => { navigator.clipboard?.writeText(msg.value).catch(() => {}); st.textContent = 'Opening Telegram — message copied too.'; });
+})();
