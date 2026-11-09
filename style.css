@@ -162,3 +162,19 @@ html[dir=rtl] .tag{letter-spacing:0;font-family:Vazirmatn,monospace}
 .card:hover .more{transform:translateX(5px)}
 html[dir=rtl] .card:hover .more{transform:translateX(-5px)}
 .prob .card h3{font-size:1.05rem;margin-bottom:.4rem}
+
+.social h3{font:700 1.1rem 'Space Grotesk';margin-bottom:.2rem}
+html[dir=rtl] .social h3{font-family:Vazirmatn,sans-serif}
+.rowl{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.3rem}
+.rowl span{color:var(--muted);font-size:.9rem;direction:ltr}
+.note{border-color:rgba(34,211,238,.4);background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(124,92,255,.06))}
+.pill{display:inline-block;margin-bottom:.6rem;padding:.15rem .8rem;border-radius:99px;background:var(--acc2);color:#04121a;font-size:.72rem;font-weight:700}
+.note p{color:var(--text);font-size:.92rem}
+.foot{display:grid!important;grid-template-columns:1.6fr 1fr 1fr;gap:2.5rem}
+.f-brand b{font:700 1.3rem 'Courier New',monospace;color:var(--acc)}
+.f-brand p{margin:.6rem 0 1rem;max-width:320px}
+.f-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.f-chips a{padding:.3rem .9rem;border:1px solid var(--line);border-radius:99px;font-size:.8rem;color:var(--muted);transition:.25s}
+.f-chips a:hover{color:var(--text);border-color:var(--acc)}
+.foot h4{font-size:.85rem;margin-bottom:.4rem;letter-spacing:.05em}
+@media(max-width:700px){.foot{grid-template-columns:1fr}}
