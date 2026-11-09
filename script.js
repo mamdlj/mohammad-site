@@ -107,7 +107,7 @@ const FA = {
   'Not sure a website is the right fit? Write to me anyway — I will tell you honestly what makes sense, even if the answer is that you do not need one yet.':'مطمئن نیستید وب‌سایت برایتان مناسب است؟ باز هم برایم بنویسید؛ صادقانه می‌گویم چه چیزی منطقی است، حتی اگر جواب این باشد که فعلاً به آن نیازی ندارید.',
   'Why Work With Me?':'چرا با من کار کنید؟','Clean Code':'کد تمیز','Modern Design':'طراحی مدرن','Responsive Websites':'وب‌سایت‌های ریسپانسیو','Fast Performance':'عملکرد سریع','Creative Ideas':'ایده‌های خلاقانه','Continuous Learning':'یادگیری مداوم',
   'What do you build?':'چه چیزی می‌سازید؟','Modern, responsive websites, landing pages and UI designs, plus speed and experience optimization for existing sites.':'وب‌سایت‌های مدرن و ریسپانسیو، لندینگ پیج و طراحی رابط کاربری، به‌علاوه‌ی بهینه‌سازی سرعت و تجربه‌ی کاربری سایت‌های موجود.',
-  'How do I start a project?':'چطور پروژه را شروع کنم؟','Use the message builder below: pick a topic, describe your idea in a few lines and send it to me on Telegram.':'از پیام‌ساز پایین استفاده کنید: موضوع را انتخاب کنید، ایده‌تان را در چند خط بنویسید و در تلگرام یا ایتا برایم بفرستید.',
+  'How do I start a project?':'چطور پروژه را شروع کنم؟','Use the message builder below: pick a topic, describe your idea in a few lines and send it to me on Telegram.':'از پیام‌ساز پایین استفاده کنید: موضوع را انتخاب کنید، ایده‌تان را در چند خط بنویسید و در پیوی تلگرام برایم بفرستید.',
   'How is the cost decided?':'هزینه چطور مشخص می‌شود؟',"It depends on the pages, features and design you need. Send me your idea and I'll reply with a clear quote.":'بستگی به تعداد صفحات، امکانات و طراحی مورد نیاز دارد. ایده‌تان را بفرستید تا قیمت مشخص را اعلام کنم.',
   'Will my website work on mobile?':'آیا سایت من روی موبایل خوب کار می‌کند؟','Yes. Every site I build is responsive and tested on phones, tablets and desktops.':'بله. همه‌ی سایت‌هایی که می‌سازم ریسپانسیو هستند و روی موبایل، تبلت و دسکتاپ تست می‌شوند.',
   'Can you improve my existing website?':'می‌توانید سایت فعلی من را بهتر کنید؟','Yes. I can redesign it or optimize its speed and user experience without starting from zero.':'بله. می‌توانم آن را بازطراحی کنم یا سرعت و تجربه‌ی کاربری‌اش را بدون شروع از صفر بهینه کنم.',
@@ -115,13 +115,13 @@ const FA = {
   "Let's Work Together":'بیایید با هم کار کنیم',"Have an idea or project in mind? Let's turn it into reality.":'ایده یا پروژه‌ای در ذهن دارید؟ بیایید آن را به واقعیت تبدیل کنیم.',
   'Topic':'موضوع','Website design':'طراحی وب‌سایت','Landing page':'لندینگ پیج','UI design':'طراحی رابط کاربری','Website optimization':'بهینه‌سازی وب‌سایت','Something else':'موضوع دیگر',
   'Name (optional)':'نام (اختیاری)','Describe your project in 2–3 lines':'پروژه‌تان را در ۲ تا ۳ خط توضیح دهید','Ready message':'پیام آماده','Copy message':'کپی پیام',
-  'Send on Telegram':'ارسال در تلگرام','Send on Eitaa':'ارسال در ایتا','🐙 GitHub':'🐙 گیت‌هاب','✈️ Telegram':'✈️ تلگرام','📸 Instagram':'📸 اینستاگرام','💬 Eitaa':'💬 ایتا','Telegram':'تلگرام','Instagram':'اینستاگرام','Eitaa':'ایتا',
+  'Message me on Telegram (PV)':'پیام در تلگرام (پیوی)','🐙 GitHub':'🐙 گیت‌هاب','✈️ Telegram':'✈️ تلگرام','📸 Instagram':'📸 اینستاگرام','Telegram':'تلگرام','Instagram':'اینستاگرام',
   'What happens next?':'بعدش چه می‌شود؟','Send me a short message about your idea or need.':'یک پیام کوتاه درباره‌ی ایده یا نیازتان بفرستید.','We talk briefly so I understand your goals.':'کوتاه صحبت می‌کنیم تا هدف‌هایتان را بفهمم.','You get a written proposal with scope and timing.':'یک پیشنهاد مکتوب با محدوده‌ی کار و زمان‌بندی دریافت می‌کنید.',
   '© 2026 Mohammad Taha. All Rights Reserved.':'© ۲۰۲۶ محمد طاها. تمامی حقوق محفوظ است.','💬 Message me':'💬 پیام بده'
 };
 const UI = {
-  en: { lines: ['building modern websites, one commit at a time', 'designing clean, fast interfaces', 'turning ideas into real products'], ph: 'e.g. I need a modern landing page for my shop', copied: 'Message copied ✓', tg: 'Opening Telegram — message copied too.', ea: 'Opening Eitaa — message copied, paste it in the chat.', btn: 'فارسی', title: 'Mohammad Taha — Web Developer & Designer' },
-  fa: { lines: ['ساخت وب‌سایت‌های مدرن، یک کامیت در هر قدم', 'طراحی رابط‌های تمیز و سریع', 'تبدیل ایده‌ها به محصول واقعی'], ph: 'مثلاً: برای فروشگاهم یک لندینگ پیج مدرن می‌خواهم', copied: 'پیام کپی شد ✓', tg: 'در حال باز کردن تلگرام — پیام کپی هم شد.', ea: 'در حال باز کردن ایتا — پیام کپی شد، در گفتگو پیست کنید.', btn: 'EN', title: 'محمد طاها — توسعه‌دهنده و طراح وب' }
+  en: { lines: ['building modern websites, one commit at a time', 'designing clean, fast interfaces', 'turning ideas into real products'], ph: 'e.g. I need a modern landing page for my shop', copied: 'Message copied ✓', tg: 'Opening my Telegram PV — message copied too.', btn: 'فارسی', title: 'Mohammad Taha — Web Developer & Designer' },
+  fa: { lines: ['ساخت وب‌سایت‌های مدرن، یک کامیت در هر قدم', 'طراحی رابط‌های تمیز و سریع', 'تبدیل ایده‌ها به محصول واقعی'], ph: 'مثلاً: برای فروشگاهم یک لندینگ پیج مدرن می‌خواهم', copied: 'پیام کپی شد ✓', tg: 'در حال باز کردن پیوی تلگرام — پیام کپی هم شد.', btn: 'EN', title: 'محمد طاها — توسعه‌دهنده و طراح وب' }
 };
 let LANG = 'en'; try { LANG = localStorage.getItem('lang') || 'en'; } catch (e) {}
 const orig = new WeakMap();
@@ -148,7 +148,7 @@ let li = 0, ci = 0, del = false;
 })();
 
 /* ====== Message builder (Telegram / Eitaa) ====== */
-const topic = $('#topic'), gname = $('#gname'), gdesc = $('#gdesc'), gmsg = $('#gmsg'), tg = $('#tg'), ea = $('#ea'), st = $('#status');
+const topic = $('#topic'), gname = $('#gname'), gdesc = $('#gdesc'), gmsg = $('#gmsg'), tg = $('#tg'), st = $('#status');
 function build() {
   const n = gname.value.trim(), d = gdesc.value.trim();
   gmsg.value = LANG === 'fa'
@@ -160,7 +160,6 @@ function build() {
 const copyMsg = () => navigator.clipboard?.writeText(gmsg.value).catch(() => {});
 $('#copy').onclick = async () => { try { await navigator.clipboard.writeText(gmsg.value); } catch (e) { gmsg.select(); document.execCommand('copy'); } st.textContent = UI[LANG].copied; };
 tg.addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].tg; });
-ea.addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].ea; });
 
 /* ====== Grand-opening countdown ====== */
 const OPENING = new Date('2026-11-08T21:10:00Z').getTime();
