@@ -154,3 +154,11 @@ html[dir=rtl] .scroll{left:50%}
 .launch.hide{display:none}
 #lclose{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#fff;font-size:1.4rem;cursor:pointer;line-height:1}
 html[dir=rtl] #lclose{right:auto;left:14px}
+
+.tag{display:block;font:600 .72rem 'Courier New',monospace;letter-spacing:.25em;color:var(--acc2);margin-bottom:.7rem}
+html[dir=rtl] .tag{letter-spacing:0;font-family:Vazirmatn,monospace}
+#services .card i{width:46px;height:46px;display:grid;place-items:center;font-size:1.3rem;border-radius:12px;background:rgba(124,92,255,.14);border:1px solid rgba(124,92,255,.32)}
+.more{display:inline-block;margin-top:1.1rem;color:var(--acc2);font-weight:600;font-size:.85rem;transition:transform .25s}
+.card:hover .more{transform:translateX(5px)}
+html[dir=rtl] .card:hover .more{transform:translateX(-5px)}
+.prob .card h3{font-size:1.05rem;margin-bottom:.4rem}

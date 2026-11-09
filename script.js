@@ -95,6 +95,14 @@ const FA = {
   'Web Development':'توسعه وب','Landing Page':'لندینگ پیج','Website Optimization':'بهینه‌سازی وب‌سایت',
   'Building modern, responsive websites.':'ساخت وب‌سایت‌های مدرن و ریسپانسیو.','Designing modern, user-friendly interfaces.':'طراحی رابط کاربری مدرن و کاربرپسند.',
   'Designing professional, eye-catching landing pages.':'طراحی لندینگ پیج‌های حرفه‌ای و جذاب.',"Improving your site's speed and user experience.":'بهینه‌سازی سرعت و تجربه‌ی کاربری سایت.',
+  'SERVICES':'خدمات','PROBLEMS I SOLVE':'مشکلاتی که حل می‌کنم','From Idea to Live Website':'از ایده تا وب‌سایت آنلاین','Every project is handled by me from start to finish — no handoffs, no middlemen.':'هر پروژه از اول تا آخر توسط خودم انجام می‌شود؛ بدون واسطه و بدون دست‌به‌دست شدن.','Start a project →':'شروع پروژه ←',
+  'Which problem is holding you back?':'کدام مشکل جلوی شما را گرفته؟','Find yours — each card leads straight to the solution.':'مشکل خودتان را پیدا کنید؛ هر کارت مستقیم به راه‌حل می‌رود.',
+  'My website looks outdated':'سایتم قدیمی به نظر می‌رسد','A fresh, modern redesign that builds trust the moment visitors arrive.':'بازطراحی تازه و مدرن که از همان لحظه‌ی ورود اعتماد می‌سازد.','Get a redesign →':'بازطراحی می‌خواهم ←',
+  'My site loads too slowly':'سایتم دیر باز می‌شود','Visitors leave when pages are slow. I optimize speed and smooth out the experience.':'وقتی صفحه کند باشد بازدیدکننده می‌رود. سرعت را بالا می‌برم و تجربه را روان می‌کنم.','Speed it up →':'سریعش کن ←',
+  'It breaks on mobile':'روی موبایل به‌هم می‌ریزد','Most visitors are on phones. I make every page look right on every screen.':'بیشتر بازدیدکننده‌ها با موبایل می‌آیند. هر صفحه را روی هر صفحه‌نمایشی درست نشان می‌دهم.','Fix my layout →':'چیدمانم را درست کن ←',
+  'I need a page that converts':'صفحه‌ای می‌خواهم که مشتری بیاورد','A focused landing page that explains your offer and guides people to act.':'لندینگ پیج متمرکز که پیشنهادتان را توضیح می‌دهد و مخاطب را به اقدام هدایت می‌کند.','Build my landing page →':'لندینگ پیجم را بساز ←',
+  'I need a clean interface':'رابط کاربری تمیز می‌خواهم','Clear, user-friendly UI design so people find what they need without effort.':'طراحی رابط روشن و کاربرپسند تا کاربر بدون زحمت چیزی را که می‌خواهد پیدا کند.','Design my UI →':'رابط من را طراحی کن ←',
+  "I don't know where to start":'نمی‌دانم از کجا شروع کنم','Send me a few lines about your idea — we will figure out the best first step together.':'چند خط درباره‌ی ایده‌تان برایم بنویسید؛ با هم بهترین قدم اول را پیدا می‌کنیم.','Talk to me →':'با من صحبت کنید ←',
   'Why Work With Me?':'چرا با من کار کنید؟','Clean Code':'کد تمیز','Modern Design':'طراحی مدرن','Responsive Websites':'وب‌سایت‌های ریسپانسیو','Fast Performance':'عملکرد سریع','Creative Ideas':'ایده‌های خلاقانه','Continuous Learning':'یادگیری مداوم',
   'What do you build?':'چه چیزی می‌سازید؟','Modern, responsive websites, landing pages and UI designs, plus speed and experience optimization for existing sites.':'وب‌سایت‌های مدرن و ریسپانسیو، لندینگ پیج و طراحی رابط کاربری، به‌علاوه‌ی بهینه‌سازی سرعت و تجربه‌ی کاربری سایت‌های موجود.',
   'How do I start a project?':'چطور پروژه را شروع کنم؟','Use the message builder below: pick a topic, describe your idea in a few lines and send it to me on Telegram.':'از پیام‌ساز پایین استفاده کنید: موضوع را انتخاب کنید، ایده‌تان را در چند خط بنویسید و در تلگرام یا ایتا برایم بفرستید.',
@@ -167,6 +175,8 @@ function renderLaunch() {
 }
 $('#lclose').onclick = () => $('#launch').classList.add('hide');
 setInterval(renderLaunch, 1000);
+
+document.querySelectorAll('[data-topic]').forEach(a => a.addEventListener('click', () => { topic.selectedIndex = +a.dataset.topic; build(); }));
 
 /* ====== Apply language ====== */
 function setLang(l) {
