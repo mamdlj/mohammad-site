@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mamdlj.github.io/mohammad-site/sitemap.xml

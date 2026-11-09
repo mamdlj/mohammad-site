@@ -36,7 +36,9 @@ $('#projectGrid').innerHTML = PROJECTS.map(p => `
     </div></article>`).join('');
 
 /* ====== Loader ====== */
-window.addEventListener('load', () => setTimeout(() => $('#loader').classList.add('done'), 500));
+const hideLoader = () => $('#loader').classList.add('done');
+window.addEventListener('load', () => setTimeout(hideLoader, 400));
+setTimeout(hideLoader, 3000);
 
 /* ====== Theme ====== */
 const root = document.documentElement, themeBtn = $('#theme');
@@ -46,7 +48,7 @@ setTheme(saved);
 themeBtn.onclick = () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
 
 /* ====== Mobile menu ====== */
-$('#burger').onclick = () => $('#menu').classList.toggle('open');
+$('#burger').onclick = e => { const o = $('#menu').classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', o); };
 $$('#menu a').forEach(a => a.onclick = () => $('#menu').classList.remove('open'));
 
 /* ====== Scroll: progress, back-to-top, active link ====== */
@@ -57,7 +59,7 @@ addEventListener('scroll', () => {
   $('#top').classList.toggle('show', h.scrollTop > 600);
   let cur = sections[0].id;
   sections.forEach(s => { if (scrollY >= s.offsetTop - 140) cur = s.id; });
-  links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  links.forEach(a => { const on = a.getAttribute('href') === '#' + cur; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'); });
 }, { passive: true });
 $('#top').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -81,7 +83,7 @@ document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.targ
 
 /* ====== Language (EN / FA) ====== */
 const FA = {
-  'Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
+  'Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
   'Web • Design • AI':'وب • طراحی • هوش مصنوعی',"Hello, I'm":'سلام، من','Mohammad Taha':'محمد طاها','Web Developer & Designer':'توسعه‌دهنده و طراح وب',
   'I create modern, responsive and creative websites with clean code and great user experiences.':'وب‌سایت‌های مدرن، ریسپانسیو و خلاقانه می‌سازم؛ با کد تمیز و تجربه‌ی کاربری عالی.',
   'View My Projects':'مشاهده‌ی پروژه‌ها','About Me':'درباره من',
