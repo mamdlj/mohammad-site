@@ -1,6 +1,6 @@
 'use strict';
 /* ====== Settings ====== */
-const TELEGRAM = 'NeoCode5'; // fallback when EMAIL is empty
+const TELEGRAM = 'P4_Mamdjj'; // fallback when EMAIL is empty
 
 const SKILLS = [
   ['🌐', 'HTML', 90], ['🎨', 'CSS', 85], ['⚙️', 'JavaScript', 70], ['🐍', 'Python', 50],
@@ -9,7 +9,8 @@ const SKILLS = [
 
 const PROJECTS = [
   { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'In progress',
-    desc: 'Telegram bot for managing students — currently in development.', tech: ['Python', 'Telegram Bot'] },
+    desc: 'Telegram bot for managing students — currently in development.', tech: ['Python', 'Telegram Bot'],
+    live: 'https://hesabi-student-manager.hesabi-school-portal.workers.dev/' },
   { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'In progress',
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/' },
