@@ -165,32 +165,52 @@ const copyMsg = () => navigator.clipboard?.writeText(gmsg.value).catch(() => {})
 $('#copy').onclick = async () => { try { await navigator.clipboard.writeText(gmsg.value); } catch (e) { gmsg.select(); document.execCommand('copy'); } st.textContent = UI[LANG].copied; };
 tg.addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].tg; });
 
-/* ====== Grand-opening countdown ====== */
-const OPENING = new Date('2026-11-08T21:10:00Z').getTime();
-const LT = {
-  en: { before: '🚀 Grand opening in', after: "🎉 We're open! Welcome to my new website." },
-  fa: { before: '🚀 افتتاحیه‌ی بزرگ تا', after: '🎉 افتتاح شد! به وب‌سایت جدیدم خوش آمدید.' }
-};
-function renderLaunch() {
-  const box = $('#launch'), d = OPENING - Date.now();
-  if (d <= 0) { box.classList.add('done'); $('#lt-text').textContent = LT[LANG].after; return; }
-  const p = n => String(n).padStart(2, '0'), days = Math.floor(d / 864e5);
-  $('#lt-text').textContent = LT[LANG].before;
-  $('#lt').textContent = (days ? days + 'd ' : '') + p(Math.floor(d / 36e5) % 24) + ':' + p(Math.floor(d / 6e4) % 60) + ':' + p(Math.floor(d / 1e3) % 60);
-}
-$('#lclose').onclick = () => $('#launch').classList.add('hide');
-setInterval(renderLaunch, 1000);
-
-document.querySelectorAll('[data-topic]').forEach(a => a.addEventListener('click', () => { topic.selectedIndex = +a.dataset.topic; build(); }));
-
 /* ====== Apply language ====== */
 function setLang(l) {
   LANG = l; const r = document.documentElement;
   r.lang = l; r.dir = l === 'fa' ? 'rtl' : 'ltr';
   translate(l);
   gdesc.placeholder = UI[l].ph; document.title = UI[l].title; $('#lang').textContent = UI[l].btn;
-  li = 0; ci = 0; del = false; st.textContent = ''; build(); renderLaunch();
+  li = 0; ci = 0; del = false; st.textContent = ''; build();
   try { localStorage.setItem('lang', l); } catch (e) {}
 }
 $('#lang').onclick = () => setLang(LANG === 'fa' ? 'en' : 'fa');
 setLang(LANG);
+
+/* ====== Release lock: site stays closed until the timer ends ====== */
+const RELEASE = new Date('2026-11-10T14:06:00Z').getTime();   // ← change this to move the opening time
+const LOCK_SPAN = 2 * 3600 * 1000;           // length of the countdown (for the progress bar)
+(function () {
+  const lock = $('#lock'); if (!lock) return;
+  if (Date.now() >= RELEASE) { lock.remove(); return; }
+  const root = document.documentElement;
+  const guarded = ['header.nav', 'main', 'footer', '.chat', '#top'].map(q => document.querySelector(q)).filter(Boolean);
+  root.classList.add('locked'); guarded.forEach(e => e.setAttribute('inert', ''));
+  const C = 276.46, p2 = n => String(n).padStart(2, '0');
+  const fmt = (o, tz) => { try { return new Date(RELEASE).toLocaleString(o, { dateStyle: 'medium', timeStyle: 'short', timeZone: tz }); } catch (e) { return ''; } };
+  $('#lk-date').textContent = 'Opens: ' + fmt(undefined) + '  ·  تهران: ' + fmt('fa-IR', 'Asia/Tehran');
+  let done = false;
+  function confetti() {
+    const c = $('#lk-fx'), g = c.getContext('2d'); c.width = innerWidth; c.height = innerHeight;
+    const cols = ['#8f85ff', '#4ddcff', '#4ade80', '#ffffff'];
+    const ps = Array.from({ length: 140 }, () => ({ x: innerWidth / 2, y: innerHeight / 2, vx: (Math.random() - .5) * 18, vy: Math.random() * -16 - 3, s: Math.random() * 7 + 3, c: cols[Math.random() * 4 | 0], l: 110 }));
+    (function f() { g.clearRect(0, 0, c.width, c.height);
+      ps.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .35; p.l--; g.globalAlpha = Math.max(0, p.l / 110); g.fillStyle = p.c; g.fillRect(p.x, p.y, p.s, p.s); });
+      if (ps[0].l > 0) requestAnimationFrame(f); else g.clearRect(0, 0, c.width, c.height); })();
+  }
+  function tick() {
+    const d = Math.max(0, RELEASE - Date.now()), h = Math.floor(d / 36e5), m = Math.floor(d / 6e4) % 60, s = Math.floor(d / 1e3) % 60;
+    $('#lk-h').textContent = p2(h); $('#lk-m').textContent = p2(m); $('#lk-s').textContent = p2(s);
+    $('#r-h').style.strokeDashoffset = C * (1 - Math.min(1, h / 24));
+    $('#r-m').style.strokeDashoffset = C * (1 - m / 60);
+    $('#r-s').style.strokeDashoffset = C * (1 - ((d % 6e4) / 6e4));
+    $('#lk-bar').style.width = Math.min(100, Math.max(0, (1 - d / LOCK_SPAN) * 100)) + '%';
+    if (d <= 0 && !done) {
+      done = true; clearInterval(iv);
+      lock.classList.add('live'); $('#lk-title').textContent = "We're live! 🎉"; $('#lk-sub').textContent = 'افتتاح شد — خوش آمدید';
+      confetti();
+      setTimeout(() => { lock.classList.add('opening'); root.classList.remove('locked'); guarded.forEach(e => e.removeAttribute('inert')); setTimeout(() => lock.remove(), 1000); }, 2200);
+    }
+  }
+  const iv = setInterval(tick, 200); tick();
+})();

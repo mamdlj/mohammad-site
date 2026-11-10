@@ -219,3 +219,38 @@ section[id]{scroll-margin-top:72px}
  .chat{width:46px;height:46px;padding:0;font-size:0;display:grid;place-items:center;border-radius:50%}
  .chat::before{content:"💬";font-size:1.25rem}
 }
+
+/* ---- release lock ---- */
+html.locked,html.locked body{overflow:hidden;height:100%}
+#lock{position:fixed;inset:0;z-index:900;display:grid;place-items:center;padding:20px;background:#05060a;color:#f4f6ff;overflow:auto;font-family:Inter,Vazirmatn,system-ui,sans-serif;transition:opacity .9s,transform .9s,visibility .9s}
+#lock.opening{opacity:0;visibility:hidden;transform:scale(1.05)}
+.lk-bg{position:fixed;inset:0;overflow:hidden;z-index:-1}
+.lk-bg i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(110px);opacity:.3;animation:lkdrift 16s ease-in-out infinite alternate}
+.lk-bg i:nth-child(1){background:#5b3df5;top:-22vmax;left:-14vmax}
+.lk-bg i:nth-child(2){background:#06b6d4;bottom:-26vmax;right:-12vmax;opacity:.2;animation-delay:-5s}
+.lk-bg i:nth-child(3){background:#c04cff;top:35%;left:48%;width:28vmax;height:28vmax;opacity:.14;animation-delay:-9s}
+@keyframes lkdrift{to{transform:translate(7vmax,5vmax) scale(1.15)}}
+.lk-card{position:relative;width:min(740px,100%);text-align:center;padding:clamp(28px,5vw,58px) clamp(18px,4vw,52px);border-radius:32px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 40px 120px -20px rgba(0,0,0,.7),inset 0 1px rgba(255,255,255,.08);animation:lkrise .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes lkrise{from{opacity:0;transform:translateY(26px) scale(.97)}}
+.lk-logo{font:700 1.5rem 'Courier New',monospace;color:#8f85ff;margin-bottom:16px;direction:ltr}
+.lk-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid rgba(255,255,255,.12);border-radius:99px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#b9c0d4;background:rgba(255,255,255,.03)}
+.lk-badge i{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:lkping 2s infinite}
+@keyframes lkping{0%{box-shadow:0 0 0 0 rgba(74,222,128,.6)}70%,100%{box-shadow:0 0 0 10px transparent}}
+.lk-title{margin:22px 0 12px;font:700 clamp(2rem,7vw,3.5rem)/1.1 'Space Grotesk',Inter,sans-serif;letter-spacing:-.03em;background:linear-gradient(90deg,#8f85ff,#4ddcff,#8f85ff);background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lkshine 4s linear infinite}
+@keyframes lkshine{to{background-position:200%}}
+.lk-sub{color:#8d95aa;line-height:1.8;font-size:.95rem;max-width:480px;margin:0 auto}
+.lk-rings{display:flex;justify-content:center;gap:clamp(8px,3vw,28px);margin:32px 0 26px}
+.ring{position:relative;width:clamp(86px,25vw,150px);aspect-ratio:1}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:6;stroke-linecap:round}
+.ring .bg{stroke:rgba(255,255,255,.08)}
+.ring .fg{stroke:url(#lkgrad);stroke-dasharray:276.46;stroke-dashoffset:276.46;transition:stroke-dashoffset .3s linear;filter:drop-shadow(0 0 6px rgba(124,92,255,.65))}
+.ring .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring b{font:700 clamp(1.5rem,6.5vw,2.8rem)/1 'Space Grotesk',Inter,sans-serif;font-variant-numeric:tabular-nums}
+.ring small{margin-top:6px;font-size:.62rem;line-height:1.4;color:#8d95aa;letter-spacing:.08em;text-transform:uppercase}
+.lk-bar{height:5px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden;max-width:420px;margin:0 auto}
+.lk-bar span{display:block;height:100%;width:0;border-radius:5px;background:linear-gradient(90deg,#7c5cff,#22d3ee);transition:width 1s linear}
+.lk-date{margin-top:16px;font-size:.78rem;color:#6b7390}
+#lk-fx{position:fixed;inset:0;pointer-events:none}
+#lock.live .lk-title{animation:none;-webkit-text-fill-color:#4ade80}
+@media(prefers-reduced-motion:reduce){.lk-bg i,.lk-title,.lk-badge i{animation:none}}
