@@ -8,9 +8,9 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'In progress',
+  { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
     desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
-    live: 'https://hesabi-student-manager.hesabi-school-portal.workers.dev/' },
+    cta: 'Contact me for a demo →' },
   { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'In progress',
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/' },
@@ -29,11 +29,12 @@ $('#skillGrid').innerHTML = SKILLS.map(([i, n, p]) =>
 
 $('#projectGrid').innerHTML = PROJECTS.map(p => `
   <article class="card proj reveal">
-    <div class="thumb"><img src="${p.img}" alt="${p.name}" loading="lazy">${p.status ? `<span class="status">${p.status}</span>` : ''}</div>
+    <div class="thumb"><img src="${p.img}" alt="${p.name}" loading="lazy">${p.status ? `<span class="status${p.done ? ' done' : ''}">${p.status}</span>` : ''}</div>
     <div class="body"><h3>${p.name}</h3><p>${p.desc}</p>
       <div class="tags">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="links">${p.github ? `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>` : ''}
-      ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>` : ''}</div>
+      ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>` : ''}
+      ${p.cta ? `<a href="#contact" data-topic="4">${p.cta}</a>` : ''}</div>
     </div></article>`).join('');
 
 /* ====== Loader ====== */
@@ -84,7 +85,7 @@ document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.targ
 
 /* ====== Language (EN / FA) ====== */
 const FA = {
-  'Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
+  'Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
   'Web • Design • AI':'وب • طراحی • هوش مصنوعی',"Hello, I'm":'سلام، من','Mohammad Taha':'محمد طاها','Web Developer & Designer':'توسعه‌دهنده و طراح وب',
   'I create modern, responsive and creative websites with clean code and great user experiences.':'وب‌سایت‌های مدرن، ریسپانسیو و خلاقانه می‌سازم؛ با کد تمیز و تجربه‌ی کاربری عالی.',
   'View My Projects':'مشاهده‌ی پروژه‌ها','About Me':'درباره من',

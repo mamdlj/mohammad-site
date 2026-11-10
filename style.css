@@ -183,3 +183,5 @@ html[dir=rtl] .social h3{font-family:Vazirmatn,sans-serif}
 .skip:focus{top:12px}
 :focus-visible{outline:2px solid var(--acc2);outline-offset:3px;border-radius:6px}
 section[id]{scroll-margin-top:72px}
+
+.status.done{border-color:rgba(74,222,128,.55);color:#4ade80}
