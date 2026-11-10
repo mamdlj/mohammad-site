@@ -178,8 +178,8 @@ $('#lang').onclick = () => setLang(LANG === 'fa' ? 'en' : 'fa');
 setLang(LANG);
 
 /* ====== Release lock: site stays closed until the timer ends ====== */
-const RELEASE = new Date('2026-11-10T14:06:00Z').getTime();   // ← change this to move the opening time
-const LOCK_SPAN = 2 * 3600 * 1000;           // length of the countdown (for the progress bar)
+const RELEASE = new Date('2026-11-11T10:30:00Z').getTime();   // ← change this to move the opening time
+const LOCK_SPAN = 80415000;           // length of the countdown (for the progress bar)
 (function () {
   const lock = $('#lock'); if (!lock) return;
   if (Date.now() >= RELEASE) { lock.remove(); return; }
