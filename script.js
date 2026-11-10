@@ -3,8 +3,8 @@
 const TELEGRAM = 'P4_Mamdjj'; // fallback when EMAIL is empty
 
 const SKILLS = [
-  ['🌐', 'HTML', 90], ['🎨', 'CSS', 85], ['⚙️', 'JavaScript', 70], ['🐍', 'Python', 50],
-  ['🔀', 'Git', 65], ['🐙', 'GitHub', 70], ['📱', 'Responsive Design', 88], ['🖌️', 'UI Design', 80]
+  ['🌐', 'HTML', 90], ['🎨', 'CSS', 90], ['⚙️', 'JavaScript', 70], ['🐍', 'Python', 70],
+  ['🔀', 'Git', 70], ['🐙', 'GitHub', 70], ['📱', 'Responsive Design', 90], ['🖌️', 'UI Design', 90]
 ];
 
 const PROJECTS = [
@@ -14,6 +14,9 @@ const PROJECTS = [
   { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'In progress',
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/' },
+  { img: 'assets/images/project-foodstock.svg', name: 'FoodStock Manager',
+    desc: 'Inventory, staff, menu and food-order management system with a public customer order page.', tech: ['HTML', 'JavaScript', 'Cloudflare Workers', 'D1'],
+    github: 'https://github.com/mamdlj/MAMD-site', live: 'https://mamdlj.github.io/MAMD-site' },
   { img: 'assets/images/project-comingsoon.svg', name: 'Coming Soon',
     desc: 'Modern coming-soon landing page.', tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/mamdlj/Coming-soon-', live: 'https://mamdlj.github.io/Coming-soon-/' }
