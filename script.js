@@ -9,7 +9,7 @@ const SKILLS = [
 
 const PROJECTS = [
   { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'In progress',
-    desc: 'Telegram bot for managing students — currently in development.', tech: ['Python', 'Telegram Bot'],
+    desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
     live: 'https://hesabi-student-manager.hesabi-school-portal.workers.dev/' },
   { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'In progress',
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
@@ -92,7 +92,7 @@ const FA = {
   'Web Developer':'توسعه‌دهنده وب','UI Designer':'طراح رابط کاربری','Beginner Programmer':'برنامه‌نویس مبتدی','Creative Problem Solver':'حل‌کننده‌ی خلاق مسائل',
   '+ Projects':'+ پروژه','+ Technologies':'+ فناوری','% Passion':'% اشتیاق','Responsive Design':'طراحی ریسپانسیو','UI Design':'طراحی رابط کاربری',
   'Personal Portfolio':'پورتفولیوی شخصی','Coming Soon':'به‌زودی','In progress':'در حال انجام','GitHub':'گیت‌هاب','Live Demo':'دمو زنده',
-  'Telegram bot for managing students — currently in development.':'ربات تلگرام برای مدیریت دانش‌آموزان — در حال توسعه.',
+  'Student registration and management portal for a school, with an admin panel and CSV export.':'پورتال ثبت‌نام و مدیریت دانش‌آموزان برای مدرسه، با پنل مدیریت و خروجی CSV.',
   'This website — bilingual, responsive, with dark and light themes.':'همین وب‌سایت — دوزبانه، ریسپانسیو و دارای تم تیره و روشن.',
   'Modern coming-soon landing page.':'صفحه‌ی لندینگ مدرن «به‌زودی».',
   'Web Development':'توسعه وب','Landing Page':'لندینگ پیج','Website Optimization':'بهینه‌سازی وب‌سایت',
