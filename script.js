@@ -11,7 +11,7 @@ const PROJECTS = [
   { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
     desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
     cta: 'Contact me for a demo →' },
-  { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'In progress',
+  { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'Completed', done: true,
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/' },
   { img: 'assets/images/project-comingsoon.svg', name: 'Coming Soon',
