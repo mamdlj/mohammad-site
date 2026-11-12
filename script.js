@@ -1,6 +1,7 @@
 'use strict';
 /* ====== Settings ====== */
-const TELEGRAM = 'P4_Mamdjj'; // fallback when EMAIL is empty
+const TELEGRAM = 'P4_Mamdjj';   // Telegram username
+const EMAIL = '';   // ← put your email here to enable the Email row and button
 
 const SKILLS = [
   ['🌐', 'HTML', 90], ['🎨', 'CSS', 90], ['⚙️', 'JavaScript', 70], ['🐍', 'Python', 70],
@@ -8,15 +9,21 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
+  { img: 'assets/images/shot-mastershop.jpg', name: 'MasterShop',
+    desc: 'Online store for digital products and services — Persian, right-to-left storefront.', tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/mamdlj/Tast', live: 'https://mamdlj.github.io/Tast/' },
   { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
     desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
     cta: 'Contact me for a demo →' },
-  { img: 'assets/images/project-portfolio.svg', name: 'Personal Portfolio', status: 'Completed', done: true,
+  { img: 'assets/images/shot-portfolio.jpg', name: 'Personal Portfolio', status: 'Completed', done: true,
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/' },
-  { img: 'assets/images/project-comingsoon.svg', name: 'Coming Soon',
+  { img: 'assets/images/shot-comingsoon.jpg', name: 'Coming Soon',
     desc: 'Modern coming-soon landing page.', tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/mamdlj/Coming-soon-', live: 'https://mamdlj.github.io/Coming-soon-/' }
+    github: 'https://github.com/mamdlj/Coming-soon-', live: 'https://mamdlj.github.io/Coming-soon-/' },
+  { img: 'assets/images/project-bot.svg', name: 'Telegram AI Bot',
+    desc: 'Telegram bot that forwards messages to Claude and sends the replies back.', tech: ['Node.js', 'Telegram Bot API', 'Claude API'],
+    github: 'https://github.com/mamdlj/MAMD-site4' }
 ];
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -85,6 +92,7 @@ document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.targ
 
 /* ====== Language (EN / FA) ====== */
 const FA = {
+  'Online store for digital products and services — Persian, right-to-left storefront.':'فروشگاه آنلاین محصولات و خدمات دیجیتال — ویترین فارسی و راست‌به‌چپ.','Telegram AI Bot':'ربات هوش مصنوعی تلگرام','Telegram bot that forwards messages to Claude and sends the replies back.':'ربات تلگرامی که پیام‌ها را به Claude می‌فرستد و پاسخ را برمی‌گرداند.','Message on Instagram':'پیام در اینستاگرام','Email':'ایمیل','Send by email':'ارسال با ایمیل',
   'Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
   'Web • Design • AI':'وب • طراحی • هوش مصنوعی',"Hello, I'm":'سلام، من','Mohammad Taha':'محمد طاها','Web Developer & Designer':'توسعه‌دهنده و طراح وب',
   'I create modern, responsive and creative websites with clean code and great user experiences.':'وب‌سایت‌های مدرن، ریسپانسیو و خلاقانه می‌سازم؛ با کد تمیز و تجربه‌ی کاربری عالی.',
@@ -124,8 +132,8 @@ const FA = {
   '© 2026 Mohammad Taha. All Rights Reserved.':'© ۲۰۲۶ محمد طاها. تمامی حقوق محفوظ است.','💬 Message me':'💬 پیام بده'
 };
 const UI = {
-  en: { lines: ['building modern websites, one commit at a time', 'designing clean, fast interfaces', 'turning ideas into real products'], ph: 'e.g. I need a modern landing page for my shop', copied: 'Message copied ✓', tg: 'Opening my Telegram PV — message copied too.', btn: 'فارسی', title: 'Mohammad Taha — Web Developer & Designer' },
-  fa: { lines: ['ساخت وب‌سایت‌های مدرن، یک کامیت در هر قدم', 'طراحی رابط‌های تمیز و سریع', 'تبدیل ایده‌ها به محصول واقعی'], ph: 'مثلاً: برای فروشگاهم یک لندینگ پیج مدرن می‌خواهم', copied: 'پیام کپی شد ✓', tg: 'در حال باز کردن پیوی تلگرام — پیام کپی هم شد.', btn: 'EN', title: 'محمد طاها — توسعه‌دهنده و طراح وب' }
+  en: { lines: ['building modern websites, one commit at a time', 'designing clean, fast interfaces', 'turning ideas into real products'], ph: 'e.g. I need a modern landing page for my shop', copied: 'Message copied ✓', tg: 'Opening my Telegram PV — message copied too.', ig: 'Opening Instagram — message copied, paste it in the DM.', em: 'Opening your email app…', btn: 'فارسی', title: 'Mohammad Taha — Web Developer & Designer' },
+  fa: { lines: ['ساخت وب‌سایت‌های مدرن، یک کامیت در هر قدم', 'طراحی رابط‌های تمیز و سریع', 'تبدیل ایده‌ها به محصول واقعی'], ph: 'مثلاً: برای فروشگاهم یک لندینگ پیج مدرن می‌خواهم', copied: 'پیام کپی شد ✓', tg: 'در حال باز کردن پیوی تلگرام — پیام کپی هم شد.', ig: 'در حال باز کردن اینستاگرام — پیام کپی شد، در دایرکت پیست کنید.', em: 'در حال باز کردن برنامه‌ی ایمیل…', btn: 'EN', title: 'محمد طاها — توسعه‌دهنده و طراح وب' }
 };
 let LANG = 'en'; try { LANG = localStorage.getItem('lang') || 'en'; } catch (e) {}
 const orig = new WeakMap();
@@ -164,6 +172,15 @@ function build() {
 const copyMsg = () => navigator.clipboard?.writeText(gmsg.value).catch(() => {});
 $('#copy').onclick = async () => { try { await navigator.clipboard.writeText(gmsg.value); } catch (e) { gmsg.select(); document.execCommand('copy'); } st.textContent = UI[LANG].copied; };
 tg.addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].tg; });
+$('#ig').addEventListener('click', () => { copyMsg(); st.textContent = UI[LANG].ig; });
+if (EMAIL) {
+  const row = document.createElement('a'); row.className = 'card rowl'; row.href = 'mailto:' + EMAIL;
+  row.innerHTML = '<b>Email</b><span></span>'; row.lastChild.textContent = EMAIL;
+  document.querySelector('.social .note').before(row);
+  const mb = document.createElement('a'); mb.className = 'btn btn-ghost'; mb.textContent = 'Send by email'; mb.href = '#';
+  mb.addEventListener('click', e => { e.preventDefault(); location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(topic.value) + '&body=' + encodeURIComponent(gmsg.value); st.textContent = UI[LANG].em; });
+  $('#ig').after(mb);
+}
 
 /* ====== Apply language ====== */
 function setLang(l) {
