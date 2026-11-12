@@ -57,7 +57,7 @@ const PROJECTS = [
       en: ['Live countdown with progress bar', 'Animated aurora background and cursor spotlight', 'Rotating headline word', 'Waitlist form with validation and confetti', 'Automatic "We are live" state', 'Responsive and lightweight'],
       fa: ['شمارش‌معکوس زنده با نوار پیشرفت', 'پس‌زمینه‌ی شفق متحرک و نور دنبال‌کننده‌ی مکان‌نما', 'کلمه‌ی تیتر متغیر', 'فرم لیست انتظار با اعتبارسنجی و کنفتی', 'حالت خودکار «افتتاح شد»', 'ریسپانسیو و سبک']
     } },
-  { img: 'assets/images/project-bot.svg', name: 'Telegram AI Bot',
+  { img: 'assets/images/project-bot.svg', name: 'Telegram AI Bot', status: 'Completed', done: true,
     desc: 'Telegram bot that forwards messages to Claude and sends the replies back.', tech: ['Node.js', 'Telegram Bot API', 'Claude API'],
     github: 'https://github.com/mamdlj/MAMD-site4',
     long: {
@@ -69,7 +69,12 @@ const PROJECTS = [
     features: {
       en: ['Replies powered by Claude', 'Built with Node.js and the Telegram Bot API', 'Secrets kept in environment variables', 'Step-by-step Persian setup guide'],
       fa: ['پاسخ‌ها با Claude', 'ساخته‌شده با Node.js و Telegram Bot API', 'رمزها در متغیرهای محیطی نگهداری می‌شوند', 'راهنمای راه‌اندازی قدم‌به‌قدم به فارسی']
-    } }
+    } },
+  { img: 'assets/images/project-docs.svg', name: 'Document Registration', status: 'In progress',
+    desc: 'Document registration system — currently in development.', tech: [],
+    long: { en: ['This project is currently in development. A full description, screenshots and a demo will be added here when it is ready.'],
+            fa: ['این پروژه در حال توسعه است. توضیح کامل، تصاویر و دمو بعد از آماده شدن اینجا اضافه می‌شود.'] },
+    features: { en: [], fa: [] } }
 ];
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -108,15 +113,33 @@ $('#burger').onclick = e => { const o = $('#menu').classList.toggle('open'); e.c
 $$('#menu a').forEach(a => a.onclick = () => $('#menu').classList.remove('open'));
 
 /* ====== Scroll: progress, back-to-top, active link ====== */
-const sections = $$('main section[id]'), links = $$('#menu a');
+const sections = $$('main section[id]'), links = $$('#menu a'), tabs = $$('#tabbar a');
 addEventListener('scroll', () => {
   const h = document.documentElement;
-  $('#progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  $('#progress').style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + '%';
   $('#top').classList.toggle('show', h.scrollTop > 600);
-  let cur = sections[0].id;
-  sections.forEach(s => { if (scrollY >= s.offsetTop - 140) cur = s.id; });
-  links.forEach(a => { const on = a.getAttribute('href') === '#' + cur; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'); });
 }, { passive: true });
+
+/* ====== Page router: each menu item opens its own page ====== */
+const PAGES = { home: ['home'], about: ['about', 'skills'], projects: ['projects'], services: ['services', 'problems', 'why'], contact: ['contact', 'faq'] };
+const PAGE_OF = {}; Object.entries(PAGES).forEach(([p, ids]) => ids.forEach(id => PAGE_OF[id] = p));
+let currentPage = null;
+function route(first) {
+  const raw = decodeURIComponent((location.hash || '#home').slice(1)), target = PAGE_OF[raw] ? raw : 'home', page = PAGE_OF[target];
+  const main = $('#main');
+  if (page !== currentPage) {
+    sections.forEach(sec => sec.classList.toggle('off', PAGE_OF[sec.id] !== page));
+    $('.hero-bg').classList.toggle('off', page !== 'home');
+    main.dataset.page = page; main.classList.remove('page-in'); void main.offsetWidth; main.classList.add('page-in');
+    currentPage = page; window.scrollTo(0, 0);
+    if (!first) main.focus({ preventScroll: true });
+  }
+  links.forEach(a => { const on = a.getAttribute('href') === '#' + target; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
+  tabs.forEach(a => { const on = a.dataset.page === page; a.classList.toggle('on', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
+  if (target !== PAGES[page][0]) requestAnimationFrame(() => document.getElementById(target).scrollIntoView({ behavior: 'smooth', block: 'start' }));
+}
+addEventListener('hashchange', () => route(false));
+route(true);
 $('#top').onclick = () => scrollTo({ top: 0, behavior: 'smooth' });
 
 /* ====== Reveal, counters, skill bars ====== */
@@ -140,7 +163,7 @@ document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.targ
 /* ====== Language (EN / FA) ====== */
 const FA = {
   'Telegram AI Bot':'ربات هوش مصنوعی تلگرام','Telegram bot that forwards messages to Claude and sends the replies back.':'ربات تلگرامی که پیام‌ها را به Claude می‌فرستد و پاسخ را برمی‌گرداند.','Message on Instagram':'پیام در اینستاگرام','Email':'ایمیل','Send by email':'ارسال با ایمیل',
-  'View details →':'مشاهده‌ی جزئیات ←','Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
+  'Document Registration':'ثبت اسناد','Document registration system — currently in development.':'سامانه‌ی ثبت اسناد — در حال توسعه.','View details →':'مشاهده‌ی جزئیات ←','Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
   'Web • Design • AI':'وب • طراحی • هوش مصنوعی',"Hello, I'm":'سلام، من','Mohammad Taha':'محمد طاها','Web Developer & Designer':'توسعه‌دهنده و طراح وب',
   'I create modern, responsive and creative websites with clean code and great user experiences.':'وب‌سایت‌های مدرن، ریسپانسیو و خلاقانه می‌سازم؛ با کد تمیز و تجربه‌ی کاربری عالی.',
   'View My Projects':'مشاهده‌ی پروژه‌ها','About Me':'درباره من',
@@ -253,8 +276,8 @@ function renderModal() {
       ${p.preview ? `<div class="pm-tabs"><button type="button" data-tab="shot" class="${tabLive ? '' : 'on'}">${u.shot}</button><button type="button" data-tab="live" class="${tabLive ? 'on' : ''}">${u.live}</button></div>` : ''}
       <div class="frame"><div class="fbar"><i></i><i></i><i></i><span>${esc(host || p.name)}</span></div><div class="view">${view}</div></div>
       <h4>${u.overview}</h4>${p.long[LANG].map(x => `<p>${esc(x)}</p>`).join('')}
-      <h4>${u.features}</h4><ul class="pm-feat">${p.features[LANG].map(x => `<li>${esc(x)}</li>`).join('')}</ul>
-      <h4>${u.tech}</h4><div class="tags">${p.tech.map(x => `<span>${esc(x)}</span>`).join('')}</div>
+      ${p.features[LANG].length ? `<h4>${u.features}</h4><ul class="pm-feat">${p.features[LANG].map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      ${p.tech.length ? `<h4>${u.tech}</h4><div class="tags">${p.tech.map(x => `<span>${esc(x)}</span>`).join('')}</div>` : ''}
       <div class="pm-links">${p.github ? `<a class="btn btn-sm" href="${esc(p.github)}" target="_blank" rel="noopener">${u.gh}</a>` : ''}
         ${p.live ? `<a class="btn btn-sm btn-ghost" href="${esc(p.live)}" target="_blank" rel="noopener">${u.open}</a>` : ''}
         ${p.cta ? `<a class="btn btn-sm" href="#contact" data-topic="4" data-close="1">${u.ask}</a>` : ''}</div>
@@ -267,6 +290,10 @@ dlg.addEventListener('click', e => {
   const tab = e.target.closest('[data-tab]'); if (tab) { tabLive = tab.dataset.tab === 'live'; renderModal(); return; }
   const ask = e.target.closest('[data-close]');
   if (ask) { topic.selectedIndex = +ask.dataset.topic; build(); dlg.close(); }
+});
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[data-topic]:not([data-close])');
+  if (a) { topic.selectedIndex = +a.dataset.topic; build(); }
 });
 document.addEventListener('click', e => {
   const card = e.target.closest('.proj'); if (!card || e.target.closest('a')) return;
