@@ -9,7 +9,7 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
+  { img: 'assets/images/shot-hesabi.jpg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
     desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
     cta: 'Contact me for a demo →' },
   { img: 'assets/images/shot-portfolio.jpg', name: 'Personal Portfolio', status: 'Completed', done: true,
