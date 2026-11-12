@@ -368,3 +368,42 @@ html.locked,html.locked body{overflow:hidden;height:100%}
 #lk-fx{position:fixed;inset:0;pointer-events:none}
 #lock.live .lk-title{animation:none;-webkit-text-fill-color:#4ade80}
 @media(prefers-reduced-motion:reduce){.lk-bg i,.lk-title,.lk-badge i{animation:none}}
+
+/* ---- project details modal ---- */
+.proj{cursor:pointer}
+.detail{margin-top:1rem;background:transparent;border:1px solid var(--line);color:var(--text);padding:.45rem 1rem;border-radius:10px;font:600 .82rem inherit;cursor:pointer;transition:.25s}
+.detail:hover{border-color:var(--acc);color:var(--acc)}
+html.modal-open{overflow:hidden}
+dialog.pm{width:min(960px,94vw);max-height:92vh;padding:0;border:1px solid var(--line);border-radius:22px;background:var(--bg2);color:var(--text);overflow:auto;box-shadow:0 40px 120px -20px rgba(0,0,0,.7)}
+dialog.pm::backdrop{background:rgba(3,4,8,.72);backdrop-filter:blur(6px)}
+dialog.pm[open]{animation:pmin .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pmin{from{opacity:0;transform:translateY(24px) scale(.97)}}
+.pm-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:.8rem;padding:1rem 1.4rem;background:var(--bg2);border-bottom:1px solid var(--line)}
+.pm-head h3{font-size:1.15rem;flex:1}
+.pm-status{position:static!important}
+.pm-x{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:1.4rem;line-height:1;cursor:pointer}
+.pm-body{padding:1.4rem}
+.pm-body h4{margin:1.6rem 0 .6rem;font:700 1rem 'Space Grotesk',sans-serif;color:var(--acc2)}
+html[dir=rtl] .pm-body h4{font-family:Vazirmatn,sans-serif}
+.pm-body p{color:var(--muted);margin-bottom:.8rem;line-height:1.9}
+.pm-feat{list-style:none;display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.pm-feat li{position:relative;padding:.6rem 1rem .6rem 2.2rem;border:1px solid var(--line);border-radius:12px;background:var(--card);font-size:.9rem}
+.pm-feat li::before{content:"✓";position:absolute;left:.9rem;color:#4ade80;font-weight:700}
+html[dir=rtl] .pm-feat li{padding:.6rem 2.2rem .6rem 1rem}
+html[dir=rtl] .pm-feat li::before{left:auto;right:.9rem}
+.pm-tabs{display:flex;gap:.5rem;margin-bottom:.8rem}
+.pm-tabs button{padding:.4rem 1rem;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);font:600 .82rem inherit;cursor:pointer}
+.pm-tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.frame{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0b0b0f}
+.frame .fbar{display:flex;align-items:center;gap:6px;padding:.55rem .9rem;background:rgba(255,255,255,.05);border-bottom:1px solid var(--line)}
+.frame .fbar i{width:10px;height:10px;border-radius:50%;background:#ef4444}.frame .fbar i:nth-child(2){background:#eab308}.frame .fbar i:nth-child(3){background:#22c55e}
+.frame .fbar span{margin:0 auto;font:.75rem 'Courier New',monospace;color:var(--muted);direction:ltr}
+.frame .view{aspect-ratio:16/9;background:#0b0b0f}
+.frame .view img,.frame .view iframe{width:100%;height:100%;border:0;display:block;object-fit:cover;object-position:top}
+.pm-links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+@media(max-width:600px){dialog.pm{width:100vw;max-width:100vw;max-height:100dvh;height:100dvh;border-radius:0}.pm-body{padding:1rem}}
+.frame{display:flex;flex-direction:column}
+.frame .fbar{direction:ltr;flex:none;min-height:36px;box-sizing:border-box;line-height:1.4}
+.frame .fbar span{flex:1;min-width:0;margin:0 .6rem;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frame .view{flex:none;width:100%}
+.pm-status{white-space:nowrap}

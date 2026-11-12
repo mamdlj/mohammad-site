@@ -11,16 +11,65 @@ const SKILLS = [
 const PROJECTS = [
   { img: 'assets/images/shot-hesabi.jpg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
     desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
-    cta: 'Contact me for a demo →' },
+    cta: 'Contact me for a demo →',
+    long: {
+      en: ['Hesabi_Student_Manager is a web portal built for a school to collect student registration information online and manage it from one admin panel.',
+           'Parents or students fill in a single registration form: student and guardian names, national IDs and phone numbers, grade, field of study and class. A guardian-consent checkbox is required before submitting, and every successful submission returns a tracking code.',
+           'School staff sign in to a protected admin panel. After the first-run setup creates the initial administrator account, the dashboard shows the total number of students and today\'s registrations, lists every student in a table, lets staff edit a record, and exports all data to CSV.',
+           'The application runs on Cloudflare Workers and the whole interface is right-to-left Persian. Because it handles real student data, the live system is private — contact me and I will show you a demo.'],
+      fa: ['Hesabi_Student_Manager یک پورتال وب برای مدرسه است تا اطلاعات ثبت‌نام دانش‌آموزان را آنلاین جمع‌آوری کند و از یک پنل مدیریت بررسی و مدیریت کند.',
+           'اولیا یا دانش‌آموز یک فرم ثبت‌نام را پر می‌کنند: نام و نام خانوادگی دانش‌آموز و ولی، کد ملی و شماره‌ی همراه، پایه، رشته و کلاس. قبل از ثبت، تأیید رضایت ولی الزامی است و بعد از هر ثبت موفق یک کد پیگیری نمایش داده می‌شود.',
+           'کارکنان مدرسه وارد پنل مدیریت محافظت‌شده می‌شوند. بعد از راه‌اندازی اولیه و ساخت حساب مدیر، داشبورد تعداد کل دانش‌آموزان و ثبت‌های امروز را نشان می‌دهد، همه‌ی دانش‌آموزان را در یک جدول فهرست می‌کند، امکان ویرایش هر رکورد را می‌دهد و همه‌ی داده‌ها را به CSV خروجی می‌گیرد.',
+           'برنامه روی Cloudflare Workers اجرا می‌شود و کل رابط کاربری فارسی و راست‌به‌چپ است. چون این سامانه با اطلاعات واقعی دانش‌آموزان کار می‌کند، نسخه‌ی زنده خصوصی است — با من صحبت کنید تا دمو را نشانتان بدهم.']
+    },
+    features: {
+      en: ['Student registration form with guardian consent', 'Tracking code after every submission', 'First-run admin setup and secure sign-in', 'Dashboard: total students and today\'s registrations', 'Student list with record editing', 'One-click CSV export', 'Right-to-left Persian interface on Cloudflare Workers'],
+      fa: ['فرم ثبت‌نام دانش‌آموز با تأیید رضایت ولی', 'کد پیگیری بعد از هر ثبت', 'راه‌اندازی اولیه‌ی مدیر و ورود امن', 'داشبورد: کل دانش‌آموزان و ثبت‌های امروز', 'فهرست دانش‌آموزان با امکان ویرایش', 'خروجی CSV با یک کلیک', 'رابط فارسی راست‌به‌چپ روی Cloudflare Workers']
+    } },
   { img: 'assets/images/shot-portfolio.jpg', name: 'Personal Portfolio', status: 'Completed', done: true,
     desc: 'This website — bilingual, responsive, with dark and light themes.', tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/' },
+    github: 'https://github.com/mamdlj/mohammad-site', live: 'https://mamdlj.github.io/mohammad-site/',
+    long: {
+      en: ['This is my personal portfolio: a single-page, bilingual (English and Persian) website that presents my skills, projects and ways to contact me.',
+           'It is built with plain HTML, CSS and JavaScript — no frameworks — so it loads fast. It supports dark and light themes, a full right-to-left layout in Persian, and self-hosted fonts so nothing depends on external font servers.',
+           'A message builder turns a topic and a few lines about your project into a ready-to-send message for Telegram or Instagram. The site also includes SEO metadata, accessibility features such as a skip link and clear keyboard focus, and a countdown screen that was used for the launch.'],
+      fa: ['این پورتفولیوی شخصی من است: یک وب‌سایت تک‌صفحه‌ای و دوزبانه (انگلیسی و فارسی) که مهارت‌ها، پروژه‌ها و راه‌های ارتباط با من را نشان می‌دهد.',
+           'با HTML، CSS و جاوااسکریپت ساده و بدون فریم‌ورک ساخته شده تا سریع باز شود. تم تیره و روشن، چیدمان کامل راست‌به‌چپ برای فارسی و فونت‌های داخل خود سایت دارد، پس به سرور فونت بیرونی وابسته نیست.',
+           'پیام‌ساز بخش تماس، موضوع و چند خط درباره‌ی پروژه‌ی شما را به یک پیام آماده برای تلگرام یا اینستاگرام تبدیل می‌کند. سایت متاداده‌ی سئو، امکانات دسترس‌پذیری مثل لینک پرش به محتوا و فوکوس واضح کیبورد، و یک صفحه‌ی شمارش‌معکوس برای افتتاحیه هم دارد.']
+    },
+    features: {
+      en: ['English / Persian with full RTL layout', 'Dark and light themes', 'Self-hosted fonts, no frameworks', 'Message builder for Telegram and Instagram', 'SEO metadata and accessibility basics', 'Responsive from phones to large screens'],
+      fa: ['انگلیسی / فارسی با چیدمان کامل راست‌به‌چپ', 'تم تیره و روشن', 'فونت داخلی و بدون فریم‌ورک', 'پیام‌ساز برای تلگرام و اینستاگرام', 'متاداده‌ی سئو و اصول دسترس‌پذیری', 'ریسپانسیو از موبایل تا صفحه‌های بزرگ']
+    } },
   { img: 'assets/images/shot-comingsoon.jpg', name: 'Coming Soon',
     desc: 'Modern coming-soon landing page.', tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/mamdlj/Coming-soon-', live: 'https://mamdlj.github.io/Coming-soon-/' },
+    github: 'https://github.com/mamdlj/Coming-soon-', live: 'https://mamdlj.github.io/Coming-soon-/',
+    preview: 'https://mamdlj.github.io/Coming-soon-/',
+    long: {
+      en: ['A modern "coming soon" landing page for a product that is about to launch. It shows a live countdown to the launch date together with a progress bar, so visitors can see how close the opening is.',
+           'The background is an animated aurora with a soft grid and a spotlight that follows the cursor, and the headline rotates between words. A waitlist form validates the email address and celebrates with confetti. When the countdown ends, the page switches to a "We are live" state on its own.',
+           'It is a single static page written in plain HTML, CSS and JavaScript and works on every screen size. The launch date is set in one line of code. The waitlist form only saves emails in the visitor\'s browser until a backend is connected.'],
+      fa: ['یک صفحه‌ی «به‌زودی» مدرن برای محصولی که در آستانه‌ی راه‌اندازی است. شمارش‌معکوس زنده تا تاریخ افتتاح و یک نوار پیشرفت نشان می‌دهد تا بازدیدکننده بفهمد افتتاح چقدر نزدیک است.',
+           'پس‌زمینه یک شفق متحرک با شبکه‌ی محو و نوری است که دنبال مکان‌نما می‌آید و کلمه‌ی تیتر مدام عوض می‌شود. فرم لیست انتظار ایمیل را بررسی می‌کند و با کنفتی جشن می‌گیرد. وقتی شمارش‌معکوس تمام شود، صفحه خودش به حالت «افتتاح شد» می‌رود.',
+           'یک صفحه‌ی استاتیک با HTML، CSS و جاوااسکریپت ساده است و روی هر اندازه‌ی صفحه‌ای کار می‌کند. تاریخ افتتاح در یک خط کد تنظیم می‌شود. فرم لیست انتظار تا وقتی بک‌اند وصل نشود، ایمیل‌ها را فقط در مرورگر خود بازدیدکننده ذخیره می‌کند.']
+    },
+    features: {
+      en: ['Live countdown with progress bar', 'Animated aurora background and cursor spotlight', 'Rotating headline word', 'Waitlist form with validation and confetti', 'Automatic "We are live" state', 'Responsive and lightweight'],
+      fa: ['شمارش‌معکوس زنده با نوار پیشرفت', 'پس‌زمینه‌ی شفق متحرک و نور دنبال‌کننده‌ی مکان‌نما', 'کلمه‌ی تیتر متغیر', 'فرم لیست انتظار با اعتبارسنجی و کنفتی', 'حالت خودکار «افتتاح شد»', 'ریسپانسیو و سبک']
+    } },
   { img: 'assets/images/project-bot.svg', name: 'Telegram AI Bot',
     desc: 'Telegram bot that forwards messages to Claude and sends the replies back.', tech: ['Node.js', 'Telegram Bot API', 'Claude API'],
-    github: 'https://github.com/mamdlj/MAMD-site4' }
+    github: 'https://github.com/mamdlj/MAMD-site4',
+    long: {
+      en: ['A Telegram bot written in Node.js. It receives a user\'s message, sends it to Claude through the Anthropic API and replies in the same chat with the answer.',
+           'It uses the node-telegram-bot-api library and the Anthropic SDK. The bot token and the API key are read from environment variables, so no secret is stored in the code. The repository includes a step-by-step Persian README that explains how to create a bot with BotFather and run this project.'],
+      fa: ['یک ربات تلگرام که با Node.js نوشته شده است. پیام کاربر را می‌گیرد، از طریق API شرکت Anthropic برای Claude می‌فرستد و پاسخ را در همان گفتگو برمی‌گرداند.',
+           'از کتابخانه‌ی node-telegram-bot-api و SDK شرکت Anthropic استفاده می‌کند. توکن ربات و کلید API از متغیرهای محیطی خوانده می‌شوند، پس هیچ رمزی داخل کد ذخیره نیست. مخزن یک README فارسی قدم‌به‌قدم دارد که ساخت ربات با BotFather و اجرای پروژه را توضیح می‌دهد.']
+    },
+    features: {
+      en: ['Replies powered by Claude', 'Built with Node.js and the Telegram Bot API', 'Secrets kept in environment variables', 'Step-by-step Persian setup guide'],
+      fa: ['پاسخ‌ها با Claude', 'ساخته‌شده با Node.js و Telegram Bot API', 'رمزها در متغیرهای محیطی نگهداری می‌شوند', 'راهنمای راه‌اندازی قدم‌به‌قدم به فارسی']
+    } }
 ];
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -31,11 +80,12 @@ $('#skillGrid').innerHTML = SKILLS.map(([i, n, p]) =>
   `<div class="card skill reveal"><i>${i}</i><div class="row"><span>${n}</span><span>${p}%</span></div>
    <div class="bar"><span data-w="${p}"></span></div></div>`).join('');
 
-$('#projectGrid').innerHTML = PROJECTS.map(p => `
-  <article class="card proj reveal">
+$('#projectGrid').innerHTML = PROJECTS.map((p, i) => `
+  <article class="card proj reveal" data-i="${i}">
     <div class="thumb"><img src="${p.img}" alt="${p.name}" loading="lazy">${p.status ? `<span class="status${p.done ? ' done' : ''}">${p.status}</span>` : ''}</div>
     <div class="body"><h3>${p.name}</h3><p>${p.desc}</p>
       <div class="tags">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
+      <button class="detail" type="button" data-i="${i}">View details →</button>
       <div class="links">${p.github ? `<a href="${p.github}" target="_blank" rel="noopener">GitHub</a>` : ''}
       ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener">Live Demo</a>` : ''}
       ${p.cta ? `<a href="#contact" data-topic="4">${p.cta}</a>` : ''}</div>
@@ -90,7 +140,7 @@ document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.targ
 /* ====== Language (EN / FA) ====== */
 const FA = {
   'Telegram AI Bot':'ربات هوش مصنوعی تلگرام','Telegram bot that forwards messages to Claude and sends the replies back.':'ربات تلگرامی که پیام‌ها را به Claude می‌فرستد و پاسخ را برمی‌گرداند.','Message on Instagram':'پیام در اینستاگرام','Email':'ایمیل','Send by email':'ارسال با ایمیل',
-  'Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
+  'View details →':'مشاهده‌ی جزئیات ←','Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
   'Web • Design • AI':'وب • طراحی • هوش مصنوعی',"Hello, I'm":'سلام، من','Mohammad Taha':'محمد طاها','Web Developer & Designer':'توسعه‌دهنده و طراح وب',
   'I create modern, responsive and creative websites with clean code and great user experiences.':'وب‌سایت‌های مدرن، ریسپانسیو و خلاقانه می‌سازم؛ با کد تمیز و تجربه‌ی کاربری عالی.',
   'View My Projects':'مشاهده‌ی پروژه‌ها','About Me':'درباره من',
@@ -179,13 +229,57 @@ if (EMAIL) {
   $('#ig').after(mb);
 }
 
+/* ====== Project details modal ====== */
+const MUI = {
+  en: { overview: 'Overview', features: 'Key features', tech: 'Built with', shot: 'Screenshot', live: 'Live preview', open: 'Open in new tab', close: 'Close', gh: 'GitHub', demo: 'Live Demo', ask: 'Contact me for a demo' },
+  fa: { overview: 'معرفی', features: 'امکانات کلیدی', tech: 'ساخته‌شده با', shot: 'تصویر', live: 'پیش‌نمایش زنده', open: 'باز کردن در تب جدید', close: 'بستن', gh: 'گیت‌هاب', demo: 'دمو زنده', ask: 'برای دمو با من صحبت کنید' }
+};
+const dlg = document.createElement('dialog');
+dlg.className = 'pm'; dlg.setAttribute('aria-labelledby', 'pm-title');
+document.body.appendChild(dlg);
+let openIdx = null, tabLive = false;
+const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function renderModal() {
+  if (openIdx === null) return;
+  const p = PROJECTS[openIdx], u = MUI[LANG], t = LANG === 'fa' ? (FA[p.name] || p.name) : p.name;
+  const host = (p.live || p.preview || '').replace(/^https?:\/\//, '');
+  const view = tabLive && p.preview
+    ? `<iframe src="${esc(p.preview)}" title="${esc(p.name)}" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer"></iframe>`
+    : `<img src="${esc(p.img)}" alt="${esc(p.name)}">`;
+  dlg.innerHTML = `
+    <div class="pm-head"><h3 id="pm-title">${esc(t)}</h3>${p.status ? `<span class="status pm-status${p.done ? ' done' : ''}">${LANG === 'fa' ? (FA[p.status] || p.status) : p.status}</span>` : ''}
+      <button class="pm-x" type="button" aria-label="${u.close}">×</button></div>
+    <div class="pm-body">
+      ${p.preview ? `<div class="pm-tabs"><button type="button" data-tab="shot" class="${tabLive ? '' : 'on'}">${u.shot}</button><button type="button" data-tab="live" class="${tabLive ? 'on' : ''}">${u.live}</button></div>` : ''}
+      <div class="frame"><div class="fbar"><i></i><i></i><i></i><span>${esc(host || p.name)}</span></div><div class="view">${view}</div></div>
+      <h4>${u.overview}</h4>${p.long[LANG].map(x => `<p>${esc(x)}</p>`).join('')}
+      <h4>${u.features}</h4><ul class="pm-feat">${p.features[LANG].map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+      <h4>${u.tech}</h4><div class="tags">${p.tech.map(x => `<span>${esc(x)}</span>`).join('')}</div>
+      <div class="pm-links">${p.github ? `<a class="btn btn-sm" href="${esc(p.github)}" target="_blank" rel="noopener">${u.gh}</a>` : ''}
+        ${p.live ? `<a class="btn btn-sm btn-ghost" href="${esc(p.live)}" target="_blank" rel="noopener">${u.open}</a>` : ''}
+        ${p.cta ? `<a class="btn btn-sm" href="#contact" data-topic="4" data-close="1">${u.ask}</a>` : ''}</div>
+    </div>`;
+}
+function openProject(i) { openIdx = i; tabLive = false; renderModal(); dlg.showModal(); document.documentElement.classList.add('modal-open'); dlg.scrollTop = 0; }
+dlg.addEventListener('close', () => { document.documentElement.classList.remove('modal-open'); openIdx = null; dlg.innerHTML = ''; });
+dlg.addEventListener('click', e => {
+  if (e.target === dlg || e.target.closest('.pm-x')) return dlg.close();
+  const tab = e.target.closest('[data-tab]'); if (tab) { tabLive = tab.dataset.tab === 'live'; renderModal(); return; }
+  const ask = e.target.closest('[data-close]');
+  if (ask) { topic.selectedIndex = +ask.dataset.topic; build(); dlg.close(); }
+});
+document.addEventListener('click', e => {
+  const card = e.target.closest('.proj'); if (!card || e.target.closest('a')) return;
+  openProject(+card.dataset.i);
+});
+
 /* ====== Apply language ====== */
 function setLang(l) {
   LANG = l; const r = document.documentElement;
   r.lang = l; r.dir = l === 'fa' ? 'rtl' : 'ltr';
   translate(l);
   gdesc.placeholder = UI[l].ph; document.title = UI[l].title; $('#lang').textContent = UI[l].btn;
-  li = 0; ci = 0; del = false; st.textContent = ''; build();
+  renderModal(); li = 0; ci = 0; del = false; st.textContent = ''; build();
   try { localStorage.setItem('lang', l); } catch (e) {}
 }
 $('#lang').onclick = () => setLang(LANG === 'fa' ? 'en' : 'fa');
