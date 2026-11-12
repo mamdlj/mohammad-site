@@ -9,9 +9,6 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  { img: 'assets/images/shot-mastershop.jpg', name: 'MasterShop',
-    desc: 'Online store for digital products and services — Persian, right-to-left storefront.', tech: ['HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/mamdlj/Tast', live: 'https://mamdlj.github.io/Tast/' },
   { img: 'assets/images/project-hesabi.svg', name: 'Hesabi_Student_Manager', status: 'Completed', done: true,
     desc: 'Student registration and management portal for a school, with an admin panel and CSV export.', tech: ['Cloudflare Workers', 'Admin panel', 'CSV export'],
     cta: 'Contact me for a demo →' },
@@ -92,7 +89,7 @@ document.addEventListener('mouseover', e => cur.classList.toggle('big', !!e.targ
 
 /* ====== Language (EN / FA) ====== */
 const FA = {
-  'Online store for digital products and services — Persian, right-to-left storefront.':'فروشگاه آنلاین محصولات و خدمات دیجیتال — ویترین فارسی و راست‌به‌چپ.','Telegram AI Bot':'ربات هوش مصنوعی تلگرام','Telegram bot that forwards messages to Claude and sends the replies back.':'ربات تلگرامی که پیام‌ها را به Claude می‌فرستد و پاسخ را برمی‌گرداند.','Message on Instagram':'پیام در اینستاگرام','Email':'ایمیل','Send by email':'ارسال با ایمیل',
+  'Telegram AI Bot':'ربات هوش مصنوعی تلگرام','Telegram bot that forwards messages to Claude and sends the replies back.':'ربات تلگرامی که پیام‌ها را به Claude می‌فرستد و پاسخ را برمی‌گرداند.','Message on Instagram':'پیام در اینستاگرام','Email':'ایمیل','Send by email':'ارسال با ایمیل',
   'Completed':'تکمیل شده','Contact me for a demo →':'برای دمو با من صحبت کنید ←','Skip to content':'پرش به محتوا','Home':'خانه','About':'درباره من','Skills':'مهارت‌ها','Projects':'پروژه‌ها','Services':'خدمات','FAQ':'سؤالات متداول','Contact':'تماس','Contact Me':'تماس با من',
   'Web • Design • AI':'وب • طراحی • هوش مصنوعی',"Hello, I'm":'سلام، من','Mohammad Taha':'محمد طاها','Web Developer & Designer':'توسعه‌دهنده و طراح وب',
   'I create modern, responsive and creative websites with clean code and great user experiences.':'وب‌سایت‌های مدرن، ریسپانسیو و خلاقانه می‌سازم؛ با کد تمیز و تجربه‌ی کاربری عالی.',
