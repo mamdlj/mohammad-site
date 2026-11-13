@@ -118,10 +118,15 @@ addEventListener('scroll', () => {
   const h = document.documentElement;
   $('#progress').style.width = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight) * 100) + '%';
   $('#top').classList.toggle('show', h.scrollTop > 600);
+  if (currentPage === 'home') {   // highlight Home / About / Skills while scrolling the home page
+    let cur = 'home';
+    ['about', 'skills'].forEach(id => { if (document.getElementById(id).getBoundingClientRect().top <= 160) cur = id; });
+    links.forEach(a => { const on = a.getAttribute('href') === '#' + cur; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
+  }
 }, { passive: true });
 
 /* ====== Page router: each menu item opens its own page ====== */
-const PAGES = { home: ['home'], about: ['about', 'skills'], projects: ['projects'], services: ['services', 'problems', 'why'], contact: ['contact', 'faq'] };
+const PAGES = { home: ['home', 'about', 'skills'], projects: ['projects'], services: ['services', 'problems', 'why'], contact: ['contact', 'faq'] };
 const PAGE_OF = {}; Object.entries(PAGES).forEach(([p, ids]) => ids.forEach(id => PAGE_OF[id] = p));
 let currentPage = null;
 function route(first) {
